@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:local="clr-namespace:MediaManagerIssue"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" NavigationPage.HasNavigationBar="False"
+             x:Class="MediaManagerIssue.MainPage">
+    <Grid Margin="10">
+        <Image x:Name="image" HeightRequest="300" VerticalOptions="Start" Margin="0, 20, 0, 0" HorizontalOptions="Center"/>
+        <StackLayout VerticalOptions="End">
+            <Label Text="Chapter 1" HorizontalOptions="Center" Margin="0, 0, 0, 20" Font="18"/>
+            <Label HorizontalOptions="Center" FontAttributes="Bold">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span x:Name="actual" Text="00:00"/>
+                        <Span Text=" / "/>
+                        <Span x:Name="total" Text="00:00"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Slider x:Name="bar" Maximum="100" Minimum="0" MaximumTrackColor="LightGray" MinimumTrackColor="Blue" ValueChanged="bar_ValueChanged">
+                <Slider.Effects>
+                    <local:SliderEffect/>
+                </Slider.Effects>
+            </Slider>
+            <StackLayout Orientation="Horizontal" Margin="0, 20, 0, 0" HorizontalOptions="Center" >
+                <Button x:Name="play" BackgroundColor="Transparent" Clicked="play_Clicked"/>
+                <Button x:Name="stop" Margin="10,0,0,0" BackgroundColor="Transparent" Clicked="stop_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
