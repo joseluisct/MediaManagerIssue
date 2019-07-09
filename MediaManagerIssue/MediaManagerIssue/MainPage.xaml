@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:MediaManagerIssue"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" NavigationPage.HasNavigationBar="False"
-             x:Class="MediaManagerIssue.MainPage">
+             x:Class="MediaManagerIssue.MainPage" Appearing="ContentPage_Appearing">
     <Grid Margin="10">
         <Image x:Name="image" HeightRequest="300" VerticalOptions="Start" Margin="0, 20, 0, 0" HorizontalOptions="Center"/>
         <StackLayout VerticalOptions="End">
@@ -19,14 +19,14 @@
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-            <Slider x:Name="bar" Maximum="100" Minimum="0" MaximumTrackColor="LightGray" MinimumTrackColor="Blue" ValueChanged="bar_ValueChanged">
+            <Slider x:Name="bar" Maximum="100" Minimum="0" MaximumTrackColor="LightGray" MinimumTrackColor="Blue" ValueChanged="Bar_ValueChanged">
                 <Slider.Effects>
                     <local:SliderEffect/>
                 </Slider.Effects>
             </Slider>
             <StackLayout Orientation="Horizontal" Margin="0, 20, 0, 0" HorizontalOptions="Center" >
-                <Button x:Name="play" BackgroundColor="Transparent" Clicked="play_Clicked"/>
-                <Button x:Name="stop" Margin="10,0,0,0" BackgroundColor="Transparent" Clicked="stop_Clicked"/>
+                <Button x:Name="play" BackgroundColor="Transparent" Clicked="Play_Clicked"/>
+                <Button x:Name="stop" Margin="10,0,0,0" BackgroundColor="Transparent" Clicked="Stop_Clicked"/>
             </StackLayout>
         </StackLayout>
     </Grid>

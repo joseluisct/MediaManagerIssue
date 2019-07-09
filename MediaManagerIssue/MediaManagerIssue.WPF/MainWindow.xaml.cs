@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediaManager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,7 @@ namespace MediaManagerIssue.WPF
         {
             InitializeComponent();
             Forms.Init();
+            CrossMediaManager.Current.Init();
             LoadApplication(new MediaManagerIssue.App());
         }
     }

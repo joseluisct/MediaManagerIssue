@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediaManager;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -53,6 +54,7 @@ namespace MediaManagerIssue.UWP
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 Xamarin.Forms.Forms.Init(e);
+                CrossMediaManager.Current.Init();
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

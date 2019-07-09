@@ -17,7 +17,7 @@ namespace MediaManagerIssue
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        string fichero = Path.Combine(App.directory, App.mp3);
+        string file = Path.Combine(App.directory, App.mp3);
         IMediaManager MediaManager => CrossMediaManager.Current;
 
         public MainPage()
@@ -28,15 +28,15 @@ namespace MediaManagerIssue
             play.ImageSource = ImageSource.FromFile(App.play);
         }
 
-        private async void play_Clicked(object sender, EventArgs e)
+        private async void Play_Clicked(object sender, EventArgs e)
         {
             if (MediaManager.State == MediaPlayerState.Stopped || MediaManager.State == MediaPlayerState.Failed)
             {              
-                await MediaManager.Play(fichero);
+                await MediaManager.Play(file);
             }
             else
             {
-                await MediaManager.Pause();
+                await MediaManager.PlayPause();
             }
         }
 
@@ -110,21 +110,21 @@ namespace MediaManagerIssue
             };
         }
 
-        private void bar_ValueChanged(object sender, ValueChangedEventArgs e)
+        private void Bar_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             Debug.WriteLine("New value: " + e.NewValue + "\tOld value: " + e.OldValue);
             if (Math.Abs(e.NewValue - e.OldValue) > 2)
             {
                 if (MediaManager.State != MediaPlayerState.Stopped && MediaManager.State != MediaPlayerState.Failed)
                 {
-                    var tiempo = e.NewValue * MediaManager.Duration.TotalMilliseconds / 100;
-                    MediaManager.SeekTo(TimeSpan.FromMilliseconds(tiempo));
+                    var time = e.NewValue * MediaManager.Duration.TotalMilliseconds / 100;
+                    MediaManager.SeekTo(TimeSpan.FromMilliseconds(time));
                 }
                 else bar.Value = 0;
             }
         }
 
-        private void stop_Clicked(object sender, EventArgs e)
+        private void Stop_Clicked(object sender, EventArgs e)
         {
             MediaManager.Stop();
         }
